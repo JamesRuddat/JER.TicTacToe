@@ -21,43 +21,25 @@ public:
 	bool IsOver()
 	{
 		if (m_numTurns == 9) return true;
-		else if (m_board[0] && m_board[1] && m_board[2] == 'x') {
+		else if ((m_board[0] == 'x' && m_board[1] == 'x' && m_board[2] == 'x') ||
+			(m_board[3] == 'x' && m_board[4] == 'x' && m_board[5] == 'x') ||
+			(m_board[6] == 'x' && m_board[7] == 'x' && m_board[8] == 'x') ||
+			(m_board[0] == 'x' && m_board[4] == 'x' && m_board[8] == 'x') ||
+			(m_board[2] == 'x' && m_board[4] == 'x' && m_board[6] == 'x') ||
+			(m_board[0] == 'x' && m_board[3] == 'x' && m_board[6] == 'x') ||
+			(m_board[1] == 'x' && m_board[4] == 'x' && m_board[7] == 'x') ||
+			(m_board[2] == 'x' && m_board[5] == 'x' && m_board[8] == 'x')) {
 			m_winner = 'x';
 			return true;
 		}
-		else if (m_board[3] && m_board[4] && m_board[5] == 'x') {
-			m_winner = 'x';
-			return true;
-		}
-		else if (m_board[6] && m_board[7] && m_board[8] == 'x') {
-			m_winner = 'x';
-			return true;
-		}
-		else if (m_board[0] && m_board[4] && m_board[8] == 'x') {
-			m_winner = 'x';
-			return true;
-		}
-		else if (m_board[2] && m_board[4] && m_board[6] == 'x') {
-			m_winner = 'x';
-			return true;
-		}
-		else if (m_board[0] && m_board[1] && m_board[2] == 'o') {
-			m_winner = 'o';
-			return true;
-		}
-		else if (m_board[3] && m_board[4] && m_board[5] == 'o') {
-			m_winner = 'o';
-			return true;
-		}
-		else if (m_board[6] && m_board[7] && m_board[8] == 'o') {
-			m_winner = 'o';
-			return true;
-		}
-		else if (m_board[0] && m_board[4] && m_board[8] == 'o') {
-			m_winner = 'o';
-			return true;
-		}
-		else if (m_board[2] && m_board[4] && m_board[6] == 'o') {
+		else if ((m_board[0] == 'o' && m_board[1] == 'o' && m_board[2] == 'o') ||
+			(m_board[3] == 'o' && m_board[4] == 'o' && m_board[5] == 'o') ||
+			(m_board[6] == 'o' && m_board[7] == 'o' && m_board[8] == 'o') || 
+			(m_board[0] == 'o' && m_board[4] == 'o' && m_board[8] == 'o') || 
+			(m_board[2] == 'o' && m_board[4] == 'o' && m_board[6] == 'o') ||
+			(m_board[0] == 'o' && m_board[3] == 'o' && m_board[6] == 'o') ||
+			(m_board[1] == 'o' && m_board[4] == 'o' && m_board[7] == 'o') ||
+			(m_board[2] == 'o' && m_board[5] == 'o' && m_board[8] == 'o')) {
 			m_winner = 'o';
 			return true;
 		}
@@ -86,6 +68,6 @@ public:
 	void DisplayResult()
 	{
 		if (m_numTurns == 9 || m_winner == ' ') std::cout << "The game is a tie.\n" << "\n";
-		if (m_winner != ' ') std::cout << "The winner is " << m_playerTurn << "\n";
+		if (m_winner != ' ') std::cout << "The winner is " << m_winner << "\n";
 	}
 };
